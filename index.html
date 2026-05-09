@@ -7,7 +7,7 @@
 <meta name="description" content="VidhanLabs builds AI-powered legal intelligence tools for Indian lawyers. Research faster, prepare stronger cases, uncover hidden insights.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="attps://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -187,6 +187,145 @@ main {
   margin: 0 auto 3.5rem;
 }
 
+/* ── Problem strip ─────────────────────────────────────────── */
+.problem-strip {
+  max-width: 720px;
+  margin: 3.5rem auto;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.problem-num {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #6366f1;
+  text-transform: uppercase;
+}
+
+.problem-strip .problem-item {
+  border-top: 1px solid rgba(99, 102, 241, 0.4);
+  padding-top: 0.75rem;
+}
+
+.problem-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e4e4e7;
+  margin: 0.75rem 0 0;
+}
+
+.problem-context {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #52525b;
+  line-height: 1.7;
+  margin: 0.35rem 0 0;
+}
+
+/* ── Outcomes ──────────────────────────────────────────────── */
+.outcomes {
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.outcomes-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #71717a;
+  margin: 0 0 1.5rem;
+}
+
+.outcomes-phrase {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: #a1a1aa;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.outcomes-phrase strong {
+  color: #e4e4e7;
+  font-weight: 500;
+}
+
+.outcomes-rule {
+  border: none;
+  height: 1px;
+  width: 40px;
+  margin: 0.9rem auto;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Early access form ─────────────────────────────────────── */
+.access-form {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.access-form .form-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.access-form .form-row input {
+  flex: 1 1 160px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 0.8rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #fafafa;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.access-form .form-row input::placeholder {
+  color: #52525b;
+}
+
+.access-form .form-row input:focus {
+  border-color: rgba(99, 102, 241, 0.6);
+}
+
+.access-form .form-row .cta {
+  flex-shrink: 0;
+}
+
+.form-note {
+  font-size: 0.75rem;
+  color: #3f3f46;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.form-success {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #a78bfa;
+}
+
+.form-success svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 /* ── CTA Button ────────────────────────────────────────────── */
 .cta {
   display: inline-flex;
@@ -354,6 +493,7 @@ footer {
 .reveal-d5 { animation-delay: 0.7s; }
 .reveal-d6 { animation-delay: 0.85s; }
 .reveal-d7 { animation-delay: 1.0s; }
+.reveal-d8 { animation-delay: 1.15s; }
 
 @keyframes rise {
   to { opacity: 1; transform: translateY(0); }
@@ -377,6 +517,18 @@ footer {
     align-items: center;
     gap: 0.35rem;
   }
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+  .access-form .form-row {
+    flex-direction: column;
+  }
+  .access-form .form-row input,
+  .access-form .form-row .cta {
+    flex: 1 1 auto;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -399,31 +551,76 @@ footer {
 
   <main>
     <section class="hero">
-      <p class="intro reveal reveal-d2">Introducing</p>
+      <p class="intro reveal reveal-d1">Introducing</p>
 
-      <h1 class="brand reveal reveal-d3">VidhanLabs</h1>
+      <h1 class="brand reveal reveal-d2">VidhanLabs</h1>
 
-      <p class="tagline reveal reveal-d4">
+      <p class="tagline reveal reveal-d3">
         The <strong>intelligence layer</strong> for Indian law.
       </p>
 
-      <p class="description reveal reveal-d5">
+      <p class="description reveal reveal-d4">
         AI-powered legal intelligence designed to help lawyers research faster,
         prepare stronger cases, and uncover insights hidden in legal data.
       </p>
 
-      <div class="reveal reveal-d6">
-        <a href="mailto:hello@vidhanlabs.com" class="cta">
-          <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="3"/>
-            <path d="M2 7l10 7 10-7"/>
-          </svg>
-          Get in Touch
-        </a>
+      <div class="problem-strip reveal reveal-d5">
+        <div class="problem-grid">
+          <div class="problem-item">
+            <span class="problem-num">01</span>
+            <p class="problem-label">Hours lost to research</p>
+            <p class="problem-context">Lawyers spend the majority of their working day searching, not practising.</p>
+          </div>
+          <div class="problem-item">
+            <span class="problem-num">02</span>
+            <p class="problem-label">Insights buried in data</p>
+            <p class="problem-context">Relevant precedents and patterns exist — but finding them takes time most lawyers don't have.</p>
+          </div>
+          <div class="problem-item">
+            <span class="problem-num">03</span>
+            <p class="problem-label">Admin over advocacy</p>
+            <p class="problem-context">Case preparation, deadlines, and coordination pull focus away from the work that actually matters.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="launch-banner reveal reveal-d7">
+      <div class="outcomes reveal reveal-d6">
+        <p class="outcomes-eyebrow">What changes for you</p>
+        <p class="outcomes-phrase">Spend more time with <strong>clients</strong>. Less time searching.</p>
+        <hr class="outcomes-rule" aria-hidden="true">
+        <p class="outcomes-phrase">Walk into court better <strong>prepared</strong>.</p>
+        <hr class="outcomes-rule" aria-hidden="true">
+        <p class="outcomes-phrase">Surface <strong>insights</strong> that others miss.</p>
+      </div>
+
+      <div class="reveal reveal-d7">
+        <form class="access-form" onsubmit="handleAccessForm(event)">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+            <input type="email" name="email" placeholder="Work email" autocomplete="email" required>
+            <button type="submit" class="cta">
+              <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="3"/>
+                <path d="M2 7l10 7 10-7"/>
+              </svg>
+              Request Early Access
+            </button>
+          </div>
+          <p class="form-note">
+            No spam. We'll reach out personally when access opens.
+          </p>
+        </form>
+        <div class="form-success" id="accessSuccess" aria-live="polite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+          <span>You're on the list. We'll be in touch.</span>
+        </div>
+      </div>
+
+      <div class="launch-banner reveal reveal-d8">
         <span class="status-panel">
           <span class="status-dot" aria-hidden="true"></span>
           <span class="status-copy">
@@ -439,6 +636,24 @@ footer {
   <footer>&copy; 2026 VidhanLabs. All rights reserved.</footer>
 
 </div>
+
+<script>
+function handleAccessForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const nameField = form.elements.namedItem('name');
+  const emailField = form.elements.namedItem('email');
+  const name = String(nameField && 'value' in nameField ? nameField.value : '').trim();
+  const email = String(emailField && 'value' in emailField ? emailField.value : '').trim();
+  // POST to https://formspree.io/f/xvzlwnjv
+  // For now encode as mailto fallback:
+  window.location.href =
+    'mailto:hello@vidhanlabs.com?subject=' + encodeURIComponent('Early Access Request') +
+    '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email);
+  form.style.display = 'none';
+  document.getElementById('accessSuccess').style.display = 'flex';
+}
+</script>
 
 </body>
 </html>
