@@ -7,7 +7,7 @@
 <meta name="description" content="VidhanLabs builds AI-powered legal intelligence tools for Indian lawyers. Research faster, prepare stronger cases, uncover hidden insights.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="attps://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -220,34 +220,113 @@ main {
   height: 16px;
 }
 
-/* ── Status Indicator ───────────────────────────────────────── */
-.status {
+/* ── Launch banner (status) ────────────────────────────────── */
+.launch-banner {
+  position: relative;
   display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
   margin-top: 2.25rem;
-  padding: 0.5rem 1.25rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(167, 139, 250, 0.2);
-  background: rgba(167, 139, 250, 0.06);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #c4b5fd;
-  letter-spacing: 0.03em;
+  max-width: min(100%, 36rem);
+  padding: 1px;
+  border-radius: 100px;
+  background: linear-gradient(
+    125deg,
+    rgba(99, 102, 241, 0.65),
+    rgba(139, 92, 246, 0.5) 42%,
+    rgba(59, 130, 246, 0.45)
+  );
+  box-shadow:
+    0 0 40px rgba(99, 102, 241, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.07) inset;
+  animation: launch-banner-glow 3.5s ease-in-out infinite;
+}
+
+@keyframes launch-banner-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 36px rgba(99, 102, 241, 0.14),
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 56px rgba(99, 102, 241, 0.28),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+}
+
+.launch-banner .status-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  border-radius: inherit;
+  background: rgba(10, 10, 14, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: #a78bfa;
-  box-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+  background: linear-gradient(145deg, #c7d2fe, #6366f1);
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.22),
+    0 0 16px rgba(129, 140, 248, 0.75);
   animation: status-pulse 2s ease-in-out infinite;
 }
 
 @keyframes status-pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(167, 139, 250, 0.6); }
-  50%      { opacity: 0.5; box-shadow: 0 0 4px rgba(167, 139, 250, 0.2); }
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow:
+      0 0 0 4px rgba(99, 102, 241, 0.22),
+      0 0 16px rgba(129, 140, 248, 0.75);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(0.92);
+    box-shadow:
+      0 0 0 7px rgba(99, 102, 241, 0.1),
+      0 0 10px rgba(129, 140, 248, 0.45);
+  }
+}
+
+.status-copy {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.15rem 0.45rem;
+  text-align: center;
+}
+
+.status-lead {
+  font-size: clamp(0.92rem, 2.6vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  background: linear-gradient(102deg, #fafafa 0%, #e0e7ff 38%, #c4b5fd 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.status-sub {
+  font-size: clamp(0.8rem, 2.1vw, 0.92rem);
+  font-weight: 500;
+  color: #a1a1aa;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-banner { animation: none; }
+  .status-dot { animation: none; }
 }
 
 /* ── Footer ────────────────────────────────────────────────── */
@@ -287,6 +366,17 @@ footer {
   .logo-mark img { width: 38px; height: 38px; }
   .intro { margin-bottom: 1rem; }
   .description { margin-bottom: 2.5rem; }
+  .launch-banner { border-radius: 20px; }
+  .launch-banner .status-panel {
+    flex-direction: column;
+    padding: 1rem 1.35rem;
+    gap: 0.65rem;
+  }
+  .status-copy {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -333,10 +423,15 @@ footer {
         </a>
       </div>
 
-      <p class="status reveal reveal-d7">
-        <span class="status-dot" aria-hidden="true"></span>
-        Currently in development
-      </p>
+      <div class="launch-banner reveal reveal-d7">
+        <span class="status-panel">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="status-copy">
+            <span class="status-lead">Launching soon</span>
+            <span class="status-sub">— built for Indian legal practice.</span>
+          </span>
+        </span>
+      </div>
 
     </section>
   </main>
